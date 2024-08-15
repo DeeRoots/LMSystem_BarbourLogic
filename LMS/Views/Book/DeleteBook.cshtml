@@ -1,0 +1,20 @@
+﻿@model LMS.Models.DeleteBookViewModel
+<h2>Delete Book</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="ProcessDeleteBook" method="post">
+    
+    <input asp-for="ISBN" hidden="hidden" class="form-control" />
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </div>    
+
+</form>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

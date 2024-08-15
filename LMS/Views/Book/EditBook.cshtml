@@ -1,0 +1,69 @@
+﻿@model LMS.Models.EditBookViewModel
+<h2>Edit Book</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="ProcessEditBook" method="post">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Author"></label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Publisher"></label>
+        <input asp-for="Publisher" class="form-control" />
+        <span asp-validation-for="Publisher" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PublicationDate"></label>
+        <input asp-for="PublicationDate" class="form-control" />
+        <span asp-validation-for="PublicationDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BookCategoryId"></label>
+        <select asp-for="BookCategoryId" asp-items="@Model.BookCategories" class="form-control"></select>
+        <span asp-validation-for="BookCategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ISBN"></label>
+        <input asp-for="ISBN" class="form-control" />
+        <input asp-for="OriginalISBN" hidden="hidden" class="form-control" />
+        <span asp-validation-for="ISBN" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TotalCopies"></label>
+        <input asp-for="TotalCopies" type="number" class="form-control" />
+        <span asp-validation-for="TotalCopies" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="AvailableCopies"></label>
+        <input asp-for="AvailableCopies" type="number" class="form-control" />
+        <span asp-validation-for="AvailableCopies" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Edit Book</button>
+    </div>
+
+</form>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

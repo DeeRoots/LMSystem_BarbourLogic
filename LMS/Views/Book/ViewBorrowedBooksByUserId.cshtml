@@ -1,0 +1,22 @@
+﻿@model LMS.Models.ViewLeasedBooksViewModelByUserIdViewModel
+
+<table cellpadding="0" cellspacing="0">
+    <tr>
+        <th width="40%">User</th>
+        <th width="17%">Book</th>
+        <th width="17%">Leased On</th>
+        <th width="17%">Return By</th>
+        <th width="10%">Overdue</th>
+
+    </tr>
+    @foreach (LeasedBookViewModel book in Model.LeasedBooks)
+    {
+        <tr>
+            <td width="40%">@book.UserLeasedName</td>
+            <td width="17%">@book.BookName</td>
+            <td width="17%">@book.LeasedOn</td>
+            <td width="17%">@book.ReturnBy</td>
+            <td width="10%">@book.Overdue</td>
+        </tr>
+    }
+</table>
